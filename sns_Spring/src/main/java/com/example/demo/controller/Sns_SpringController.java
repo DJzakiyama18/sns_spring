@@ -43,7 +43,7 @@ public class Sns_SpringController {
 	public String home(@ModelAttribute LoginForm loginForm , BindingResult result,Model model) {
 		loginsession.setId(1);
 		userGet(model);
-		return "/index";
+		return "index";
 	}
 	@RequestMapping("/login")
 	public String mypage(@Validated LoginForm loginForm,BindingResult result,Model model) {
