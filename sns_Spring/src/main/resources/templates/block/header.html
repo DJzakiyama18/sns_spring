@@ -15,7 +15,7 @@
             <li th:if="${user_name} != null"><a th:href = "@{/login?user_name={user_name}&password={password}(user_name=${user_name},password=${password})}">マイページ</a></li>
            <li> <a th:href="@{/content/create/{user_id}(user_id = ${user_id})}">新規投稿</a>
             <li th:if = "${user_name} == null"><a th:href = "@{/user/create}">新規登録</a></li>
-            <li th:if = "${user_name != null"><a th:href="@{/logout}">ログアウト</a></li>
+            <li th:if = "${user_name} != null"><a th:href="@{/logout}">ログアウト</a></li>
             </ul>
                 </div>
         </nav>
