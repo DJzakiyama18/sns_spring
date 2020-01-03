@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:fragment = "headerA">
+
+<div class="header">
+<div class="row">
+    <div class="col span-12">
+        <nav>
+        <div id="open"><img src="img/button.png"></div>
+        <div id="close"><img src="img/button2.png"></div>
+            <div id="navi">
+        <ul>
+            <li><a th:href="@{/}">ホーム</a></li>
+            <li th:if="${user_name} != null"><a th:href = "@{/login?user_name={user_name}&password={password}(user_name=${user_name},password=${password})}">マイページ</a></li>
+           <li th:if = "${user_id} != 0"> <a th:href="@{/content/create/{user_id}(user_id = ${user_id})}">新規投稿</a>
+            <li th:if = "${user_id} == 0"><a th:href = "@{/user/create}">新規登録</a></li>
+            <li th:if = "${user_id} != 0"><a th:href="@{/logout}">ログアウト</a></li>
+            </ul>
+                </div>
+        </nav>
+    </div>
+        </div>
+    </div>
+</header>
+</html>

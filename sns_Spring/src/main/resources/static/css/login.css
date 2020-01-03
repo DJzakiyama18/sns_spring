@@ -1,0 +1,51 @@
+@charset "UTF-8";
+.text{
+display: inline-block;
+padding: 0 115px;
+}
+
+.container {
+  width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.top-wrapper {
+  padding: 100px 0 50px 0;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+
+
+.btn {
+  padding: 8px 24px;
+  color: red;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.signin {
+	font-size:20px;
+  margin-top:30px;
+  width:200px;
+	height:100px;
+  background-color:#33CCFF;
+  color: white;
+}
+
+
+.btn-wrapper {
+  margin: 20px 0;
+}
+
+.btn-wrapper p {
+  margin: 10px 0;
+}
+

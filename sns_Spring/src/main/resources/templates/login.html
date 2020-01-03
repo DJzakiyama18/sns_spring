@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>マイページ</title>
+<link href="/css/sampleCss.css" th:href="@{/css/header.css}"rel="stylesheet"></link>
+<link href="/css/sampleCss.css" th:href="@{/css/main.css}"rel="stylesheet"></link>
+</head>
+<body>
+<div th:replace = "~{block/header::headerA}"></div>
+<div class = "user">
+<h1>ようこそ<span th:text="${user_name}"></span>さん</h1>
+<a type = "buton" th:href = "@{/user/update_name}">ユーザ名変更はこちら</a>
+<a   type = "buton" th:href = "@{/user/update_password}">パスワード変更はこちら</a>
+</div>
+<div class="main posts-index">
+		<div class="maincontainer" th:each="list : ${userContentList}">
+			<div class="posts-index-item">
+				<p th:text="${list.message}"></p>
+				<p th:text="${list.created_at}"></p>
+				<a type ="buton" th:href = "@{/content/update/{/date_id}(date_id=${list.date_id})}">編集</a>
+				<a type = "buton" th:href = "@{/content/delete/{/date_id}(date_id=${list.date_id})}">削除</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN";
+  background-color:#CCCCFF;
+}
+.header{
+	background-color:#33CCFF;
+}
+nav a {
+    display:block;
+    color: #FFFFFF;
+    text-decoration-line: none;
+    font-size:20px;
+
+}
+nav a:hover {
+    color: #999;
+}
+nav a img:hover {
+	opacity: 0.8;
+}
+.underline {
+	border-bottom: 3px solid #000;
+	padding-bottom: 0.5rem;
+}
+.center {
+	text-align: center;
+}
+
+/*ヘッダー
+-------------------------------------*/
+
+nav ul {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+	margin-bottom: 0.5rem;
+}
+nav li {
+    display: block;
+    flex: 0 0 15%;
+    margin: 20px 0px 20px 20px;
+}
+nav li a {
+    text-decoration: none;
+    text-align: center;
+
+}
+nav a:hover {
+    text-decoration: underline;
+}
+nav a {
+    padding: 1rem;
+}
+
+@media screen and (min-width: 768px){
+/* PC時はMENUボタンを非表示 */
+#open,#close {
+    display: none !important;
+}
+
+#navi {
+    display: block !important;
+}
+}
+
+@media screen and (max-width: 768px){
+.head {
+	flex-direction: column;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.telbox {
+	margin-left: 0;
+	text-align: center;
+}
+.head #open,#close  {
+    position: absolute;
+    top: 28px;
+    right: 12px;
+    }
+nav ul {
+	flex-direction: column;
+}
+
+nav li {
+	padding-top: 0;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 0;
+}
+/* スマホ時はMENUボタンを表示 */
+#open,#close  {
+    display: block;
+    width: 50px;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 12px;
+}
+/* スマホ時はメニューを非表示 */
+#navi {
+    display: none;
+}
+}
+
+
+/*ページトップへ戻るボタン
+-------------------------------------*/
+#pagetop {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
+#pagetop a {
+    display: block;
+    background: #666;
+    color: #fff;
+    width: 50px;
+    padding: 10px 5px;
+    text-align: center;
+}
+#pagetop a:hover {
+    background: #999;
+}
+/*パンくずリスト
+-----------------------------------*/
+.breadcrumb {
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+.breadcrumb li {
+    list-style-type: none;
+}
+.breadcrumb li a {
+    display: inline-block;
+    color: #959fa5;
+}

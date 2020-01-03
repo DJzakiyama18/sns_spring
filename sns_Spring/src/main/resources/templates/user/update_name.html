@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー名変更</title>
+<link href="/css/sampleCss.css" th:href="@{/css/header.css}"rel="stylesheet"></link>
+<link href="/css/sampleCss.css" th:href="@{/css/main.css}"rel="stylesheet"></link>
+</head>
+<body>
+<div th:replace = "~{block/header::headerA}"></div>
+<div class = "user">
+<h2>現在のユーザー名</h2>
+<h1 th:text = "${user_name}"></h1>
+</div>
+<div class="main posts-new">
+		<div class="maincontainer">
+			<form th:action="@{/user/complate_name/}" th:object="${userNameForm}">
+				<div class="form">
+					<div class="form-body">
+						<div class="form-error">
+							<p th:if="${message} != null" th:text="${message}"></p>
+						</div>
+						<p>
+							<label for="user_name">名前</label> <input type="text"name="user_name" id="user_name">
+						</p>
+						<div class="form-error">
+							<div th:if="${#fields.hasErrors('user_name')}"th:errors="*{user_name}"></div>
+						</div>
+						<input type="submit" value="送信">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

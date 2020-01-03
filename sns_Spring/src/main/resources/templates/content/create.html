@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>新規投稿</title>
+<link href="/css/sampleCss.css" th:href="@{/css/header.css}"rel="stylesheet"></link>
+<link href="/css/sampleCss.css" th:href="@{/css/main.css}"rel="stylesheet"></link>
+</head>
+<body>
+<div th:replace = "~{block/header::headerA}"></div>
+<div class="main posts-new">
+  <div class="maincontainer">
+    <h1 class="form-heading">投稿する</h1>
+   <form th:action="@{/content/complate/{user_id}(user_id = ${user_id})}" th:object="${contentForm}">
+    <div class="form">
+      <div class="form-body">
+            <div class="form-error">
+              <div th:if = "${#fields.hasErrors('message')}" th:errors="*{message}"></div>
+            </div>
+       <textarea name = "message"></textarea>
+        <input  type = "submit"  value = "送信">
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
