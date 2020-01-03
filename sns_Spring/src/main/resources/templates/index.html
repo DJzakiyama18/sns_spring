@@ -12,7 +12,7 @@
 	<div class="top-wrapper">
 		<div class="container">
 			<div class="btn-wrapper">
-				<form th:if="${user_id} == 1" th:action="@{/login}"
+				<form th:if="${user_name} == null" th:action="@{/login}"
 					th:object="${loginForm}">
 					<div class="text">
 						<h2>ユーザーネーム</h2>
