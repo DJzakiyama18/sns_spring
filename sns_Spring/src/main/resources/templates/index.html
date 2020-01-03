@@ -12,7 +12,7 @@
 	<div class="top-wrapper">
 		<div class="container">
 			<div class="btn-wrapper">
-				<form th:if="${user_id} == 0" th:action="@{/login}"
+				<form th:if="${user_id} == 1" th:action="@{/login}"
 					th:object="${loginForm}">
 					<div class="text">
 						<h2>ユーザーネーム</h2>
@@ -39,6 +39,7 @@
 	<div class="main posts-index">
 		<div class="maincontainer" th:each="list : ${contentList}">
 			<div class="posts-index-item">
+				<p th:text="${list.user_name}"></p>
 				<p th:text="${list.message}"></p>
 				<p th:text="${list.created_at}"></p>
 			</div>
