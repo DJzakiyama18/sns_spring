@@ -69,18 +69,18 @@ public String complate(@Validated UserForm userForm,BindingResult result,Model m
 @RequestMapping("/update_name")
 public String update_Name(@ModelAttribute UserNameForm userNameForm,Model model) {
 	modelSet(model);
-	return "/user/update_name";
+	return "user/update_name";
 }
 @RequestMapping("/complate_name")
 public String complate_Name(@Validated UserNameForm userNameForm, BindingResult result,Model model) {
 	if(result.hasErrors()) {
 		modelSet(model);
-		return "/user/update_name";
+		return "user/update_name";
 	}
 	if(userRepojitory.userName(userNameForm.getUser_name()) != null) {
 		modelSet(model);
 		model.addAttribute("message", "そのユーザー名はすでに使用されています");
-		return "/user/update_name";
+		return "user/update_name";
 	}
 	UserEntity userEntity = userServiceImpl.find_by(loginsession.getId());
 	userEntity.setUser_name(userNameForm.getUser_name());
@@ -95,13 +95,13 @@ public String complate_Name(@Validated UserNameForm userNameForm, BindingResult 
 @RequestMapping("/update_password")
 public String update_Password(@ModelAttribute UserPasswordForm userPasswordForm,Model model) {
 	modelSet(model);
-	return "/user/update_password";
+	return "user/update_password";
 }
 @RequestMapping("/complate_password")
 public String complate_Password(@Validated UserPasswordForm userPasswordForm,BindingResult result,Model model) {
 	if(result.hasErrors()) {
 		modelSet(model);
-		return "/user/update_password";
+		return "user/update_password";
 	}
 	if(!(userPasswordForm.getPassword().equals(userPasswordForm.getPassword2()))) {
 		modelSet(model);

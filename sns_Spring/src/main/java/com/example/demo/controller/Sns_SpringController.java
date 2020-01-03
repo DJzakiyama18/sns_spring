@@ -49,13 +49,13 @@ public class Sns_SpringController {
 	public String mypage(@Validated LoginForm loginForm,BindingResult result,Model model) {
 		if(result.hasErrors()) {
 			userGet(model);
-			return "/index";
+			return "index";
 		}
 		UserEntity userEntity = userRepojitory.loginSelect(loginForm.getUser_name(), loginForm.getPassword());
 		if(userEntity == null) {
 			userGet(model);
 			model.addAttribute("message", "ログイン失敗");
-			return "/index";
+			return "index";
 		}
 		List<ContentEntity> userContentList = contentRepojitory.userContentList(userEntity.getUser_name());
 		loginsession.setId(userEntity.getUser_id());
@@ -65,7 +65,7 @@ public class Sns_SpringController {
 		model.addAttribute("user_name", userEntity.getUser_name());
 	    model.addAttribute("password", userEntity.getPassword());
 	   model.addAttribute("userContentList", userContentList);
-		return "/login";
+		return "login";
 	}
 
 	@RequestMapping("/logout")
