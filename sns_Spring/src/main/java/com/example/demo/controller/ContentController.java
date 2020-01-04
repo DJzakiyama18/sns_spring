@@ -49,6 +49,15 @@ public class ContentController {
 		if(result.hasErrors()) {
 			return "content/create";
 		}
+		if(user_id == 1){
+			UserEntity userEntity = userServiceImpl.find_by(user_id);
+		ContentEntity contentEntity = new ContentEntity();
+		contentEntity.setUser_name(userEntity.getUser_name());
+		contentEntity.setMessage(contentForm.getMessage());
+		contentEntity.setCreated_at(LocalDateTime.now());
+		contentServiceImpl.save(contentEntity);
+		return "redirect:/";
+		}
 		UserEntity userEntity = userServiceImpl.find_by(user_id);
 		ContentEntity contentEntity = new ContentEntity();
 		contentEntity.setUser_name(userEntity.getUser_name());
@@ -62,9 +71,6 @@ public class ContentController {
 	@RequestMapping("/update/{date_id}")
 	public String update(@ModelAttribute ContentForm contentForm,Model model ,@PathVariable ("date_id") int date_id) {
 		ContentEntity contentEntity =  contentServiceImpl.find_by(date_id);
-//		model.addAttribute("user_name", loginsession.getUser_name());
-//		model.addAttribute("password", loginsession.getPassword());
-//		model.addAttribute("user_id", loginsession.getId());
 		userSet(model);
 		model.addAttribute("message", contentEntity.getMessage());
 		model.addAttribute("date_id", date_id);
