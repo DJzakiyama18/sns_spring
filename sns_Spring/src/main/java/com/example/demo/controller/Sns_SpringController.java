@@ -81,7 +81,8 @@ public class Sns_SpringController {
 		model.addAttribute("user_id", loginsession.getId());
 		model.addAttribute("user_name", loginsession.getUser_name());
 		model.addAttribute("password",loginsession.getPassword());
-		List<ContentEntity> contentList = contentServiceImpl.findAll();
+		// List<ContentEntity> contentList = contentServiceImpl.findAll();
+		List<ContentEntity> contentList = contentRepojitory.userContentListOrder();
 		model.addAttribute("contentList", contentList);
 	}
 }

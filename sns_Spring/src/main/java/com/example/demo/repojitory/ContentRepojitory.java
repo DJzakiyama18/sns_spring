@@ -12,4 +12,7 @@ import com.example.demo.entity.ContentEntity;
 public interface ContentRepojitory extends JpaRepository<ContentEntity, Integer>{
 @Query("select c from ContentEntity  c where c.user_name = :user_name")
 List<ContentEntity> userContentList(@Param("user_name") String user_name);
+
+@Query("select c from ContentEntity c order by created_at desc")
+List<ContentEntity> userContentListOrder();
 }
